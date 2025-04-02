@@ -1,5 +1,5 @@
 
-### ✅ EVALUACIÓN DE EQUIPOS
+### EVALUACIÓN DE EQUIPOS
 
 | Comparación                             | ¿Mismo club? | Comentario breve |
 |-----------------------------------------|--------------|------------------|
@@ -17,7 +17,6 @@
 | Betis B vs Betis Deportivo              | 🟢 Sí        | Mismo equipo, cambio de nombre |
 | Burgos, CF y Promesas                   | 🔴 No        | Clubes diferentes; Promesas es cantera, el CF es posterior al original |
 | Calvo Sotelo vs Calvo Sotelo Puertollano| 🔴 No        | Club original desaparecido, refundado desde otra base |
-| Castellón vs Castilla vs Castillo       | 🔴 No        | Clubes distintos |
 | Celta de Vigo vs Celta B                | 🔴 No        | Principal vs filial |
 | Cádiz vs Cádiz B vs Mirandilla          | 🟢 Sí        | Mirandilla es el antiguo nombre del filial |
 | Córdoba vs Córdoba B                   | 🔴 No        | Principal vs filial |
