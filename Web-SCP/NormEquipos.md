@@ -8,24 +8,24 @@
 | Alcorcón vs Alcorcón B                  | 🔴 No        | Principal vs filial |
 | Almería vs Almería B                    | 🔴 No        | Principal vs filial |
 | Andorra vs Andorra CF                   | 🔴 No        | Clubes distintos (Andorra es el de Piqué, CF es anterior) |
-| Antequera vs Antequerano                | 🟡 Sí        | Antequerano desapareció, Antequera lo absorbe en 1992 |
-| Atlético Malagueño vs Málaga CF         | 🟡 Sí        | Atlético Malagueño se convierte en Málaga CF |
-| Atlético de Madrid B vs Atlético Madrileño | 🟡 Sí     | Es el mismo club, renombrado en 1991 |
-| Avilés CF vs Avilés Industrial          | 🟡 Sí        | Avilés CF es el nombre posterior del Industrial |
-| Badalona vs Badalona Futur              | 🟡 Sí        | Badalona Futur absorbió a Badalona en 2022 |
-| Barcelona B vs Atlètic/Atlético/C       | 🟡 Sí        | Todos son iteraciones del filial (Aficionados, C, Atlètic) |
+| Antequera vs Antequerano                | 🟢 Sí        | Antequerano desapareció, Antequera lo absorbe en 1992 |
+| Atlético Malagueño vs Málaga CF         | 🟢 Sí        | Atlético Malagueño se convierte en Málaga CF |
+| Atlético de Madrid B vs Atlético Madrileño | 🟢 Sí     | Es el mismo club, renombrado en 1991 |
+| Avilés CF vs Avilés Industrial          | 🟢 Sí        | Avilés CF es el nombre posterior del Industrial |
+| Badalona vs Badalona Futur              | 🟢 Sí        | Badalona Futur absorbió a Badalona en 2022 |
+| Barcelona B vs Atlètic/Atlético/C       | 🟢 Sí        | Todos son iteraciones del filial (Aficionados, C, Atlètic) |
 | Betis B vs Betis Deportivo              | 🟢 Sí        | Mismo equipo, cambio de nombre |
 | Burgos, CF y Promesas                   | 🔴 No        | Clubes diferentes; Promesas es cantera, el CF es posterior al original |
 | Calvo Sotelo vs Calvo Sotelo Puertollano| 🔴 No        | Club original desaparecido, refundado desde otra base |
 | Castellón vs Castilla vs Castillo       | 🔴 No        | Clubes distintos |
 | Celta de Vigo vs Celta B                | 🔴 No        | Principal vs filial |
-| Cádiz vs Cádiz B vs Mirandilla          | 🟡 Sí        | Mirandilla es el antiguo nombre del filial |
+| Cádiz vs Cádiz B vs Mirandilla          | 🟢 Sí        | Mirandilla es el antiguo nombre del filial |
 | Córdoba vs Córdoba B                   | 🔴 No        | Principal vs filial |
 | Deportivo vs Deportivo B               | 🔴 No        | Principal vs filial |
 | FC Cartagena vs Cartagena B            | 🔴 No        | Principal vs filial |
 | Gerona vs Girona                        | 🟢 Sí        | Es el mismo club con diferentes formas de escribirlo |
 | Getafe vs Getafe B                      | 🔴 No        | Principal vs filial |
-| Gimnàstic vs Gimnástico Tarragona       | 🟡 Sí        | Gimnástico absorbido por Nàstic (1970s) |
+| Gimnàstic vs Gimnástico Tarragona       | 🟢 Sí        | Gimnástico absorbido por Nàstic (1970s) |
 | Granada, 74 y B                         | 🔴 No        | Granada 74 es otro club, Granada B es el filial |
 | Hospitalet vs L'Hospitalet              | 🟢 Sí        | Solo cambio ortográfico |
 | Huesca vs Huesca B                      | 🔴 No        | Principal vs filial |
@@ -35,12 +35,12 @@
 | Leganés vs Leganés B                    | 🔴 No        | Principal vs filial |
 | Levante vs Levante B                    | 🔴 No        | Principal vs filial |
 | Linares vs Linares CF                   | 🔴 No        | El CF desapareció; nuevo Linares fundado en 2009 |
-| Lleida vs Lleida CF                     | 🟡 Sí        | Club anterior (desaparecido) y refundado |
+| Lleida vs Lleida CF                     | 🟢 Sí        | Club anterior (desaparecido) y refundado |
 | Logroñés, CF y B                        | 🔴 No        | Club original desaparecido, CF es refundado |
 | Lorca (todos los nombres)               | 🔴 No        | Clubes diferentes (FC, Deportiva, Atlético…) |
 | Mallorca, Atlético y B                  | 🔴 No        | Principal vs antiguos y actuales filiales |
 | Mancha Real vs Manchego                 | 🔴 No        | Clubes distintos y de ciudades diferentes |
-| Mar Menor vs Mar Menor FC              | 🟡 Sí        | El FC es el club refundado en 2007 |
+| Mar Menor vs Mar Menor FC              | 🟢 Sí        | El FC es el club refundado en 2007 |
 | Murcia vs Murcia Imperial               | 🔴 No        | Principal vs filial |
 | Málaga vs Málaga B                      | 🔴 No        | Principal vs filial |
 | Mérida, AD, Industrial                  | 🔴 No        | Clubes distintos por disolución y refundación |
@@ -49,7 +49,7 @@
 | Orihuela vs Orihuela CF                 | 🔴 No        | Clubes distintos aunque relacionados |
 | Osasuna B vs Osasuna Promesas          | 🟢 Sí        | Son el mismo club |
 | Ourense vs Ourense CF                   | 🔴 No        | CF es la refundación tras desaparición del original |
-| Oviedo, B, Aficionados, Vetusta         | 🟡 Sí        | Todos han sido el filial en distintas épocas |
+| Oviedo, B, Aficionados, Vetusta         | 🟢 Sí        | Todos han sido el filial en distintas épocas |
 | Palencia vs Palencia CF                | 🔴 No        | Clubes diferentes |
 | Peralada vs Peralta                    | 🔴 No        | Clubes distintos |
 | Peña Deportiva vs Peña Sport           | 🔴 No        | Clubes distintos |
@@ -74,6 +74,6 @@
 | Xerez vs Xerez Deportivo               | 🔴 No        | Club original desaparecido, nuevo refundado |
 | Yeclano vs Yeclano Deportivo           | 🔴 No        | Club original desaparecido, nuevo refundado |
 | Zaragoza B                             | 🔴 No        | Filial del Zaragoza |
-| Águilas vs Águilas FC                  | 🟡 Sí        | El FC es el nuevo club tras desaparición del original |
+| Águilas vs Águilas FC                  | 🟢 Sí        | El FC es el nuevo club tras desaparición del original |
 
 ---
