@@ -41,14 +41,39 @@ def scrap_clasificacion(driver, temporada_inicio, temporada_fin, grupo, liga_cod
         if len(celdas) < 13:
             continue
 
+        posicion_td = celdas[1]
+        equipo_td = celdas[3]
+        puntos_raw = celdas[4].text.strip()
+
+        # --- Detectar Copa del Rey (si contiene símbolo '⬤') ---
+        copa_del_rey = "⬤" in equipo_td.text
+        equipo = equipo_td.text.replace("⬤", "").strip()
+
+        # --- Detectar estado según clases CSS en la celda de posición ---
+        clases = posicion_td.get("class", [])
+        if "BAIXA_ADM" in clases or puntos_raw.endswith("*"):
+            estado = "Descenso Administrativo"
+        elif "PUJA" in clases:
+            estado = "Ascenso"
+        elif "prom_puja" in clases:
+            estado = "Promoción Ascenso"
+        elif "prom_baixa" in clases:
+            estado = "Promoción Permanencia"
+        elif "BAIXA" in clases:
+            estado = "Descenso"
+        else:
+            estado = "Permanencia"
+
+        puntos = puntos_raw.replace("*", "")
+
         data.append({
             'competicion': competicion,
             'liga': liga_code,
             'temporada': f"{temporada_inicio}-{temporada_fin}",
             'grupo': grupo,
-            'posición': celdas[1].text.strip(),
-            'equipo': celdas[3].text.strip().replace("⬤", "").strip(),
-            'puntos': celdas[4].text.strip(),
+            'posición': posicion_td.text.strip(),
+            'equipo': equipo,
+            'puntos': puntos,
             'pj': celdas[5].text.strip(),
             'pg': celdas[6].text.strip(),
             'pe': celdas[7].text.strip(),
@@ -57,6 +82,8 @@ def scrap_clasificacion(driver, temporada_inicio, temporada_fin, grupo, liga_cod
             'gc': celdas[10].text.strip(),
             'ta': celdas[11].text.strip(),
             'tr': celdas[12].text.strip(),
+            'copa_del_rey': copa_del_rey,
+            'estado': estado
         })
 
     return pd.DataFrame(data)
@@ -98,7 +125,7 @@ def scrap_liga(driver, df_total, competicion, liga_code, temporadas):
 
 
 if __name__ == "__main__":
-    CSV_SALIDA = "clasificacion_total.csv"
+    CSV_SALIDA = "clasificacion_totalminuscula.csv"
     df_total = cargar_existente(CSV_SALIDA)
 
     temporadas_2ab = [f"{y}-{str(y+1)[-2:]}" for y in range(1977, 2021)]
