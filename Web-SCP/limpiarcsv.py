@@ -29,4 +29,4 @@ df = df[columnas_ordenadas]
 
 # Guardar CSV limpio y ordenado
 df.to_csv("clasificacion_totalminuscula.csv", index=False)
-print("✅ CSV ordenado por competicion, temporada y grupo.")
+print(" CSV ordenado por competicion, temporada y grupo.")

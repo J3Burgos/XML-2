@@ -28,4 +28,4 @@ comparacion = pd.DataFrame({
 
 # Guardar diferencias
 comparacion.to_csv("equipos_diferentes.csv", index=False)
-print("🔍 Comparación completa. Resultados guardados en 'equipos_diferentes.csv'.")
+print(" Comparación completa. Resultados guardados en 'equipos_diferentes.csv'.")

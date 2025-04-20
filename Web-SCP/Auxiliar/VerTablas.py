@@ -18,21 +18,21 @@ def crear_driver():
 
 def debug_tablas(driver, temporada_inicio, temporada_fin, grupo, liga_code):
     url = f"https://www.bdfutbol.com/es/t/t{temporada_inicio}-{temporada_fin}{liga_code}{grupo}.html"
-    print(f"🔍 Visitando: {url}")
+    print(f" Visitando: {url}")
     driver.get(url)
 
     try:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "table")))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
     except Exception as e:
-        print(f"❌ Error al cargar la página: {e}")
+        print(f" Error al cargar la página: {e}")
         return
 
     tablas = soup.find_all("table")
-    print(f"📋 Total de tablas encontradas: {len(tablas)}\n")
+    print(f" Total de tablas encontradas: {len(tablas)}\n")
 
     for i, tabla in enumerate(tablas):
-        print(f"\n=== 🧾 TABLA {i} ===\n")
+        print(f"\n===  TABLA {i} ===\n")
         filas = tabla.find_all("tr")
         for fila in filas:
             celdas = fila.find_all(["td", "th"])
@@ -43,7 +43,7 @@ def debug_tablas(driver, temporada_inicio, temporada_fin, grupo, liga_code):
     # Mostrar leyenda si existe
     leyenda_divs = soup.find_all("div", class_="text")
     if leyenda_divs:
-        print("\n📌 Posible leyenda encontrada:")
+        print("\n Posible leyenda encontrada:")
         for div in leyenda_divs:
             print(div.get_text().strip())
 

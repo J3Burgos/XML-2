@@ -27,12 +27,12 @@ def scrap_partidos(driver, temporada_inicio, temporada_fin, grupo, liga_code, co
         WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.TAG_NAME, "table")))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
     except Exception as e:
-        print(f"❌ Error cargando la página: {e}")
+        print(f" Error cargando la página: {e}")
         return pd.DataFrame()
 
     tabla = soup.find('table', class_='tabla_partidos')
     if not tabla:
-        print(f"❌ No se encontró tabla de partidos en: {url}")
+        print(f" No se encontró tabla de partidos en: {url}")
         return pd.DataFrame()
 
     filas = tabla.find_all('tr')[1:]
@@ -79,7 +79,7 @@ def cargar_existente(path_csv):
         try:
             return pd.read_csv(path_csv)
         except pd.errors.EmptyDataError:
-            print("⚠️ CSV existente pero vacío. Se ignorará.")
+            print(" CSV existente pero vacío. Se ignorará.")
             return pd.DataFrame()
     return pd.DataFrame()
 
@@ -88,16 +88,16 @@ def scrap_partidos_liga(driver, df_total, competicion, liga_code, temporadas):
         ti, tf = temporada.split("-")
         grupo = 1
         while True:
-            print(f"🎯 Extrayendo partidos de {competicion} {temporada}, Grupo {grupo}...")
+            print(f" Extrayendo partidos de {competicion} {temporada}, Grupo {grupo}...")
             df = scrap_partidos(driver, ti, tf, grupo, liga_code, competicion)
             if df.empty:
                 if grupo == 1:
-                    print(f"⚠️ Sin datos para {competicion} {temporada}")
+                    print(f" Sin datos para {competicion} {temporada}")
                 else:
-                    print(f"⛔ Fin de grupos en {competicion} {temporada}")
+                    print(f" Fin de grupos en {competicion} {temporada}")
                 break
             df_total = pd.concat([df_total, df], ignore_index=True)
-            print(f"✅ Añadidos partidos: {competicion} {temporada} G{grupo}")
+            print(f" Añadidos partidos: {competicion} {temporada} G{grupo}")
             grupo += 1
     return df_total
 
@@ -121,6 +121,6 @@ if __name__ == "__main__":
 
     if not df_total.empty:
         df_total.to_csv(CSV_SALIDA, index=False)
-        print(f"📁 Guardado final en '{CSV_SALIDA}' con {len(df_total)} partidos.")
+        print(f" Guardado final en '{CSV_SALIDA}' con {len(df_total)} partidos.")
     else:
-        print("⚠️ No se guardó ningún archivo porque no se extrajeron partidos.")
+        print(" No se guardó ningún archivo porque no se extrajeron partidos.")
