@@ -1,0 +1,9 @@
+use("futbol");
+
+db.clasificacion.aggregate([
+    { $match: { posicion: { $gte: 8, $lte: 12 } } },
+    { $group: { _id: "$equipo", veces: { $sum: 1 } } },
+    { $sort: { veces: -1 } },
+    { $limit: 10 }
+  ]);
+  

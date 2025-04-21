@@ -1,0 +1,13 @@
+use("futbol");
+// Equipos con más tarjetas (amarillas + rojas) totales
+db.clasificacion.aggregate([
+    { $addFields: {
+        tarjetas_totales: { $add: ["$tarjetas_amarillas", "$tarjetas_rojas"] }
+    }},
+    { $sort: { tarjetas_totales: -1 } },
+    { $limit: 5 },
+    { $project: {
+        _id: 0, equipo: 1, temporada: 1, tarjetas_totales: 1
+    }}
+  ]);
+  

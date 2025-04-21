@@ -1,9 +1,9 @@
 use("futbol");
-
+// Equipos con más participaciones en la Copa del Rey
 db.clasificacion.aggregate([
-    { $match: { copa_del_rey: True } },
-    { $group: { _id: "$equipo", participaciones: { $sum: 1 } } },
-    { $sort: { participaciones: -1 } },
-    { $limit: 10 }
-  ]);
+  { $match: { copa_del_rey: true } },
+  { $group: { _id: "$equipo", participaciones: { $sum: 1 } } },
+  { $sort: { participaciones: -1 } },
+  { $limit: 10 }
+]);
   

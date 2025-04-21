@@ -1,0 +1,9 @@
+use("futbol");
+
+db.clasificacion.aggregate([
+    { $match: { estado_final: /descenso/i } },
+    { $group: { _id: "$equipo", descensos: { $sum: 1 } } },
+    { $sort: { descensos: -1 } },
+    { $limit: 10 }
+  ]);
+  

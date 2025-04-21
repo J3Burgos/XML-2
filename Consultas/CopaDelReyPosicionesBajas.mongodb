@@ -1,0 +1,18 @@
+use("futbol");
+
+// Equipos en posiciones bajas (descenso) que aún así fueron a la Copa del Rey
+db.clasificacion.find(
+  {
+    copa_del_rey: true,
+    posicion: { $gte: 21 }
+  },
+  {
+    _id: 0,
+    equipo: 1,
+    temporada: 1,
+    posicion: 1,
+    estado_final: 1
+  }
+).sort({ posicion: -1 });
+
+  
