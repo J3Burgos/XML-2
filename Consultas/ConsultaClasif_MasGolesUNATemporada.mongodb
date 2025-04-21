@@ -1,7 +1,4 @@
 use("futbol");
-
-
-
 //  Equipo con más goles a favor en la historia, EN UNA SOLA TEMPORADA
 
 db.clasificacion.find(

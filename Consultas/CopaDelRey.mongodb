@@ -1,0 +1,9 @@
+use("futbol");
+
+db.clasificacion.aggregate([
+    { $match: { copa_del_rey: True } },
+    { $group: { _id: "$equipo", participaciones: { $sum: 1 } } },
+    { $sort: { participaciones: -1 } },
+    { $limit: 10 }
+  ]);
+  

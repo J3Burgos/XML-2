@@ -4,7 +4,7 @@ from pymongo.errors import BulkWriteError
 import os
 
 # === CONFIGURACIÓN ===
-CSV_PATH = "clasificacion_total.csv"  # asegúrate de que esté en el mismo directorio
+CSV_PATH = "clasificacion_total.csv"  
 MONGO_URI = "mongodb://localhost:27017/"
 DB_NAME = "futbol"
 COLLECTION_NAME = "clasificacion"
@@ -12,16 +12,37 @@ COLLECTION_NAME = "clasificacion"
 def limpiar_y_normalizar_datos(csv_path):
     try:
         df = pd.read_csv(csv_path)
-        df['puntos'] = pd.to_numeric(df['puntos'], errors='coerce')
-        df = df.dropna(subset=['puntos'])
-        df['puntos'] = df['puntos'].astype(int)
 
-        df.columns = [
-            "competicion", "temporada", "grupo", "posicion", "equipo", "puntos",
-            "partidos_jugados", "partidos_ganados", "partidos_empatados", "partidos_perdidos",
-            "goles_favor", "goles_contra", "tarjetas_amarillas", "tarjetas_rojas",
-            "ascenso", "descenso"
+        # Conversión de columnas numéricas
+        columnas_numericas = [
+            "puntos", "pj", "pg", "pe", "pp", "gf", "gc", "ta", "tr"
         ]
+        for col in columnas_numericas:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+
+        # Convertir columna booleana (copa_del_rey puede venir como string)
+        df["copa_del_rey"] = df["copa_del_rey"].astype(str).str.lower().map({"true": True, "false": False})
+
+        # Convertir posición a numérica
+        df["posición"] = pd.to_numeric(df["posición"], errors="coerce")
+
+        # Limpiar filas inválidas
+        df = df.dropna(subset=["equipo", "temporada", "puntos"])
+
+        # Cambiar nombre de columnas para mongo (sin tildes ni mayúsculas raras)
+        df.rename(columns={
+            "posición": "posicion",
+            "pj": "partidos_jugados",
+            "pg": "partidos_ganados",
+            "pe": "partidos_empatados",
+            "pp": "partidos_perdidos",
+            "gf": "goles_favor",
+            "gc": "goles_contra",
+            "ta": "tarjetas_amarillas",
+            "tr": "tarjetas_rojas",
+            "copa_del_rey": "copa_del_rey",
+            "estado": "estado_final"
+        }, inplace=True)
 
         return df.to_dict(orient="records")
     except Exception as e:
@@ -33,6 +54,7 @@ def insertar_en_mongodb(datos, uri, db_name, collection_name):
         cliente = MongoClient(uri)
         db = cliente[db_name]
         coleccion = db[collection_name]
+        coleccion.drop()  # Limpieza previa, opcional
 
         if datos:
             resultado = coleccion.insert_many(datos)
